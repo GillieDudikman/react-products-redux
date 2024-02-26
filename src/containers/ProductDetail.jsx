@@ -11,7 +11,7 @@ const ProductDetail = () => {
 
     const fetchProducts = async () => {
         const response = await axios.get(
-            "('https://fakestoreapi.com/products/')" + id)
+            "https://fakestoreapi.com/products/" + id)
             .catch(err => {
                 console.log(err)
             })
