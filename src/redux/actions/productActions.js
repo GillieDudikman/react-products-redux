@@ -13,7 +13,7 @@ export const selectedProducts = (product) => {
     }
 }
 
-export const removeProduct = (products, id) => {
+export const removeSelectedProduct = () => {
     return {
         type: ActionTypes.REMOVE_PRODUCT,
     }
