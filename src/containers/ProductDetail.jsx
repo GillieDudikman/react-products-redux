@@ -35,7 +35,7 @@ const ProductDetail = () => {
                     <div className="productDetailDivider">AND</div>
                     <div className="productDetailMiddleRow">
                         <div className="productDetailColumnLeft">
-                            <img className="productDetailImg" src={product.image}/>
+                            <img alt={product.title} className="productDetailImg" src={product.image}/>
                         </div>
                         <div className="productDetailColumnRight">
                             {product.title}
