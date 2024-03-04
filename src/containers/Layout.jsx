@@ -1,10 +1,14 @@
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
+import { PiButterfly } from "react-icons/pi";
+
 
 const Layout = () => {
     return(
         <div className="menu">
-            <div className="container">
-                <h2>Shop</h2>
+            <div>
+                <Link className="header" to={""}>Shopling
+                    <PiButterfly className="headerIcon"/>
+                </Link>
             </div>
             <div className="outlet">
                 <Outlet/>

@@ -1,9 +1,46 @@
 @media screen and (min-width: 800px) {
 
+    .menu{
+        padding: 80px 100px;
+    }
 
+    .header{
+        border: #F08080 solid 2px;
+        display: inline-flex;
+        flex: fit-content;
+        padding: 1%;
+        border-radius: 50px;
+        background: #F08080;
+        text-decoration: none;
+        color: #FFF0F5;
+        font-size: 20px;
+        font-weight: bolder;
+}
+    .header:hover{
+        border: #F08080 solid 2px;
+        background: #FFF0F5;
+        color: #F08080;
+    }
+
+    .headerIcon{
+        font-size: 25px;
+        padding-left: 5px;
+        color: black;
+    }
+
+    .outlet{
+        display: flex;
+        padding: 2%;
+        margin: 3.5%;
+    }
 }
 
 @media screen and (max-width: 800px) and (min-width: 600px) {
+
+
+}
+
+@media screen and (max-width: 600px) and (min-width: 400px) {
 
 
 }
