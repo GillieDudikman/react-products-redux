@@ -186,6 +186,25 @@
         float: right;
     }
 
+    .error-back{
+        float: right;
+        border: #F08080 solid 2px;
+        padding: 2%;
+        border-radius: 50px;
+        background: #F08080;
+        text-decoration: none;
+        color: #FFF0F5;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .error-back:hover{
+        border: #F08080 solid 2px;
+        background: #FFF0F5;
+        color: #F08080;
+        box-shadow: 10px 10px 15px pink;
+    }
+
     .loading{
         border: black solid 2px;
         display: flex;
@@ -194,6 +213,15 @@
         border-radius: 50px;
         background: #F08080;
         text-decoration: none;
+        color: black;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .error-page{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
         color: black;
         font-size: 20px;
         font-weight: bolder;
