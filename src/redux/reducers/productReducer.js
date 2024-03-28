@@ -24,6 +24,10 @@ export const selectedProductReducer = (state={}, {type, payload}) => {
                 ...state,
                 ...payload
             }
+        case ActionTypes.NO_DATA:
+            return{
+                ...payload
+            }
         case ActionTypes.REMOVE_PRODUCT:
             return{
             }

@@ -1,8 +1,10 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
-import {removeSelectedProduct, selectedProducts} from "../redux/actions/productActions";
+import {noData, removeSelectedProduct, selectedProducts} from "../redux/actions/productActions";
 import {useEffect} from "react";
+import {RiArrowGoBackLine} from "react-icons/ri";
+import ProductDetailError from "../errors/ProductDetailError";
 
 const ProductDetail = () => {
     const product = useSelector(state => state.product)
@@ -15,7 +17,11 @@ const ProductDetail = () => {
             .catch(err => {
                 console.log(err)
             })
-        dispatch(selectedProducts(response.data))
+        if(response.data !== "")
+            dispatch(selectedProducts(response.data))
+        else{
+            dispatch(noData())
+        }
     }
 
     useEffect(() => {
@@ -25,36 +31,39 @@ const ProductDetail = () => {
             dispatch(removeSelectedProduct())
         }
     }, [id]);
+
+    console.log(product)
     return(
-        <div className="productDetialContainer">
+        <div className="productDetailContainer">
             {Object.keys(product).length === 0 ? (
-                <div>...LOADING...</div>
-            ) : (
+                <div className="loading">LOADING...</div>
+            ) : product.title === "no data" ? (<ProductDetailError/>) :(
             <div className="productDetailSegment">
                 <div className="productDetailColumn">
-                    <div className="productDetailDivider">AND</div>
                     <div className="productDetailMiddleRow">
                         <div className="productDetailColumnLeft">
-                            <img alt={product.title} className="productDetailImg" src={product.image}/>
+                            <img alt={product.title} src={product.image}/>
                         </div>
+                        <div className="productDetailDivider"></div>
                         <div className="productDetailColumnRight">
+                            <div className="product-details-header">
                             {product.title}
-                        </div>
-                        <div className="productDetailPrice">
-                            {product.price}$
-                        </div>
-                        <div className="productDetailDescription">
-                            {product.description}
-                        </div>
-                        <div className="productDetailAnimation" tabIndex="0">
-                            <div className="productDetailHiddenContent">
-                                <i className="shop icon"></i>
+                            </div>
+                            <div className="product-details-price">
+                                {product.price}$
+                            </div>
+                            <div className="product-details-description">
+                                {product.description}
                             </div>
                         </div>
                     </div>
                 </div>
+                <Link to={"/react-products-redux"} className="header go-back">
+                    Go Back
+                    <RiArrowGoBackLine  className="headerIcon"/>
+                </Link>
             </div>
-                )}
+            )}
         </div>
     )
 }

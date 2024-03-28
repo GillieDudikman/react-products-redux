@@ -20,7 +20,7 @@ const ProductListing = () => {
     }, []);
 
     return(
-        <div>
+        <div className="product-container">
            <Product/>
         </div>
     )
